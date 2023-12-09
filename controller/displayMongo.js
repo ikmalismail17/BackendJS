@@ -23,7 +23,6 @@ const displayMongo = async (req, res) => {
   } finally {
     // Ensures that the client will close when you finish/error
     await mongoCon.close();
-    console.log("MongoDB connection closed");
   }
 }
 
