@@ -1,7 +1,9 @@
-import { MongoClient , ServerApiVersion } from "mongodb";
+import { MongoClient, ServerApiVersion } from "mongodb";
+import dotenv from "dotenv";
 
-// Replace the uri string with your connection string.
-const uri = "mongodb+srv://ikmalismail17:ikmalfyp2023@fypmongodb.1weu790.mongodb.net/?retryWrites=true&w=majority";
+dotenv.config();
+
+const uri = process.env.MONGODB_URI;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const mongoCon = new MongoClient(uri, {
@@ -9,7 +11,7 @@ const mongoCon = new MongoClient(uri, {
     version: ServerApiVersion.v1,
     strict: true,
     deprecationErrors: true,
-  }
+  },
 });
 
 async function connectToDatabase() {
@@ -21,7 +23,7 @@ async function connectToDatabase() {
   }
 }
 
-//call the connectToDatabase function
+// Call the connectToDatabase function
 connectToDatabase();
 
 export default mongoCon;
