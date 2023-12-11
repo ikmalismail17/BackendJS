@@ -1,13 +1,23 @@
 import express from "express";
-import displayData from "../controller/dataDisplay.js";
 import deleteData from "../controller/deleteData.js"
 import displayMongo from "../controller/displayMongo.js"
+import insertData from "../controller/arduinoMongo.js";
+import tempLogin from "../controller/templogin.js";
+import adminLogin from "../controller/adminLogin.js";
+import verifyToken from "../controller/verifyToken.js";
+import dataAdmin from "../controller/dataAdmin.js";
+
 const reqRoute = express.Router();
 
+//post
+reqRoute.post("/arduinodata", insertData); //insert from arduino
+reqRoute.post("/templogin", tempLogin)
+reqRoute.post("/login", adminLogin); //insert from web
 
 //get
-// reqRoute.get("/datadisplay", displayData)
 reqRoute.get("/datadisplay", displayMongo)
+reqRoute.get("/protected", verifyToken)
+reqRoute.get("/admininfo/:id", dataAdmin)
 
 //delete
 reqRoute.delete("/datadelete/:id", deleteData)
