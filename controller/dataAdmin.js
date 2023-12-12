@@ -25,4 +25,5 @@ const adminData = async (req, res) => {
   }
 }
 
+
 export default adminData;
