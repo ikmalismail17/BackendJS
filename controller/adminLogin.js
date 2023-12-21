@@ -8,6 +8,7 @@ dotenv.config();
 const jwtSecretKey = process.env.SECRET_KEY;
 
 const adminLogin = async (req, res) => {
+    
         try {
 
             await mongoCon.connect();
@@ -19,7 +20,7 @@ const adminLogin = async (req, res) => {
             const user = await adminMongo.findOne({ email });
 
             if (user && (await bcrypt.compare(password, user.password))) {
-                const resToken = jwt.sign({ email}, jwtSecretKey);
+                const resToken = jwt.sign({ email }, jwtSecretKey);
                 const userId = user._id;
                 res.json({ resToken, userId });
             } else {

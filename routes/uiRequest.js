@@ -6,6 +6,7 @@ import tempLogin from "../controller/templogin.js";
 import adminLogin from "../controller/adminLogin.js";
 import verifyToken from "../controller/verifyToken.js";
 import dataAdmin from "../controller/dataAdmin.js";
+import verifyAdmin from "../controller/verifyAdmin.js";
 
 const reqRoute = express.Router();
 
@@ -20,6 +21,6 @@ reqRoute.get("/protected", verifyToken)
 reqRoute.get("/admininfo/:id", dataAdmin)
 
 //delete
-reqRoute.delete("/datadelete/:id", deleteData)
+reqRoute.delete("/datadelete/:dataId", verifyToken, verifyAdmin ,deleteData)
 
 export default reqRoute;
