@@ -7,6 +7,7 @@ import adminLogin from "../controller/adminLogin.js";
 import verifyToken from "../controller/verifyToken.js";
 import dataAdmin from "../controller/dataAdmin.js";
 import verifyAdmin from "../controller/verifyAdmin.js";
+import dataReport from "../controller/dataReport.js";
 
 const reqRoute = express.Router();
 
@@ -19,6 +20,7 @@ reqRoute.post("/login", adminLogin); //insert from web
 reqRoute.get("/datadisplay", displayMongo)
 reqRoute.get("/protected", verifyToken)
 reqRoute.get("/admininfo/:id", dataAdmin)
+reqRoute.get("/datareport/:dataId", dataReport) 
 
 //delete
 reqRoute.delete("/datadelete/:dataId", verifyToken, verifyAdmin ,deleteData)

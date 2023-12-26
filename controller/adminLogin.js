@@ -24,7 +24,7 @@ const adminLogin = async (req, res) => {
                 const userId = user._id;
                 res.json({ resToken, userId });
             } else {
-                res.status(401).json({ error: 'Invalid credentials' });
+                res.status(401).json({ error: 'User not found!!' });
             }
         } catch (error) {
             console.error('Error logging in:', error);
