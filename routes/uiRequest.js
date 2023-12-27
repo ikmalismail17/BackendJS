@@ -8,6 +8,7 @@ import verifyToken from "../controller/verifyToken.js";
 import dataAdmin from "../controller/dataAdmin.js";
 import verifyAdmin from "../controller/verifyAdmin.js";
 import dataReport from "../controller/dataReport.js";
+import alarmReport from "../controller/alarmReport.js";
 
 const reqRoute = express.Router();
 
@@ -15,6 +16,7 @@ const reqRoute = express.Router();
 reqRoute.post("/arduinodata", insertData); //insert from arduino
 reqRoute.post("/templogin", tempLogin)
 reqRoute.post("/login", adminLogin); //insert from web
+reqRoute.post("/alarmreport", verifyToken, alarmReport)
 
 //get
 reqRoute.get("/datadisplay", displayMongo)
