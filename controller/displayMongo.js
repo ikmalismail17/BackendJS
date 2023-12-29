@@ -18,9 +18,9 @@ const displayMongo = async (req, res) => {
     // Print all documents
     res.json(data);
   } catch (error) {
-        await mongoCon.close();
-        console.error("Error in displayMongo:", error);
-        res.status(500).json({ error: 'Internal Server Error' });
+    await mongoCon.close();
+    console.error("Error in displayMongo:", error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 }
 

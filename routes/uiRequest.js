@@ -9,6 +9,7 @@ import dataAdmin from "../controller/dataAdmin.js";
 import verifyAdmin from "../controller/verifyAdmin.js";
 import dataReport from "../controller/dataReport.js";
 import alarmReport from "../controller/alarmReport.js";
+import displayReport from "../controller/displayReport.js";
 
 const reqRoute = express.Router();
 
@@ -23,6 +24,7 @@ reqRoute.get("/datadisplay", displayMongo)
 reqRoute.get("/protected", verifyToken)
 reqRoute.get("/admininfo/:id", dataAdmin)
 reqRoute.get("/datareport/:dataId", dataReport) 
+reqRoute.get("/displayreport", displayReport) 
 
 //delete
 reqRoute.delete("/datadelete/:dataId", verifyToken, verifyAdmin ,deleteData)

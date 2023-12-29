@@ -15,16 +15,24 @@ const alarmReport = async (req, res) => {
         const { adminId, dataId, message } = req.body;
 
         // Check if dataId is empty
-        if (!dataId) {
-            res.status(601).json({ error: 'Data ID empty' });
+        if (!dataId || !message) {
+            res.status(601).json({ error: 'Data Id or Message empty' });
             return;
         }
+
+        // Get the current time
+        const currentTime = new Date().toLocaleTimeString();
+
+        // Get the current date in the format "dd/mm/YYYY"
+        const currentDate = new Date().toLocaleDateString('en-GB')
 
         // Insert the data into the collection
         await report.insertOne({
             adminId: new ObjectId(adminId),
             dataId: new ObjectId(dataId),
             message: message,
+            date: currentDate,
+            time: currentTime
         });
 
         console.log('Data inserted successfully');
