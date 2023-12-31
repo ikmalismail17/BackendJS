@@ -10,6 +10,7 @@ import verifyAdmin from "../controller/verifyAdmin.js";
 import dataReport from "../controller/dataReport.js";
 import alarmReport from "../controller/alarmReport.js";
 import displayReport from "../controller/displayReport.js";
+import deleteReport from "../controller/deleteReport.js";
 
 const reqRoute = express.Router();
 
@@ -28,5 +29,6 @@ reqRoute.get("/displayreport", displayReport)
 
 //delete
 reqRoute.delete("/datadelete/:dataId", verifyToken, verifyAdmin ,deleteData)
+reqRoute.delete("/reportdelete/:dataId", verifyToken, verifyAdmin ,deleteReport)
 
 export default reqRoute;
