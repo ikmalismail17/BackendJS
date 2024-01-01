@@ -11,6 +11,7 @@ import dataReport from "../controller/dataReport.js";
 import alarmReport from "../controller/alarmReport.js";
 import displayReport from "../controller/displayReport.js";
 import deleteReport from "../controller/deleteReport.js";
+import reportPublish from "../controller/reportPublish.js";
 
 const reqRoute = express.Router();
 
@@ -19,6 +20,7 @@ reqRoute.post("/arduinodata", insertData); //insert from arduino
 reqRoute.post("/templogin", tempLogin)
 reqRoute.post("/login", adminLogin); //insert from web
 reqRoute.post("/alarmreport", verifyToken, alarmReport)
+reqRoute.post("/sendemail/:reportId", verifyToken, reportPublish)
 
 //get
 reqRoute.get("/datadisplay", displayMongo)
