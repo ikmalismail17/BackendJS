@@ -18,15 +18,6 @@ const reportPublish = async (req, res) => {
   const recipientName = to.split('@')[0];
 
   try {
-  console.log("Report Id: ", reportId);
-  console.log(`Sending email to: ${to}`);
-  console.log("Subject: ", subject);
-  console.log("Message: ", message);
-  console.log("Name: ", name);
-  console.log("Data in Cm: ", dataCm);
-  console.log("Data in Inch: ", dataInch);
-  console.log("Data date: ", dataDate);
-  console.log("Data time: ", dataTime);
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
