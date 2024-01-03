@@ -32,13 +32,13 @@ const reportPublish = async (req, res) => {
     from: 'rivdepmon@gmail.com',
     to: to,
     subject: subject,
-    text: `Hello ${recipientName},\n\n${message}\n\nDetails:\n\n`
+    text: `Hello ${recipientName},\n\nI trust this message finds you well. I am writing to provide the daily update on our River Depth Monitoring System, an essential tool in ensuring the safety and stability of our river.\n\n${message}\n\nDetails:\n\n`
     + `Distance (cm): ${dataCm}\n`
     + `Distance (Inch): ${dataInch}\n`
     + `Date: ${dataDate}\n`
     + `Time: ${dataTime}\n\n\n`
     + `Sincerely:\n`
-    + `RivDepMon Team, ${name}\n`
+    + `RivDepMon Team`
   };
   
   // Send email
