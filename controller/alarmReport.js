@@ -2,7 +2,7 @@ import  mongoCon  from '../connection/mongodb.js';
 import { ObjectId } from "mongodb";
 
 // Function to insert data into MongoDB
-const alarmReport = async (req, res) => {
+const alarmReport = async (req, res, next) => {
 
     try {
         // Connect to the database
@@ -12,7 +12,7 @@ const alarmReport = async (req, res) => {
         const database = mongoCon.db('arduinofyp');
         const report = database.collection('report');
 
-        const { adminId, dataId, message } = req.body;
+        const { id, dataId, message } = req.body;
 
         // Check if dataId is empty
         if (!dataId || !message) {
@@ -28,7 +28,7 @@ const alarmReport = async (req, res) => {
 
         // Insert the data into the collection
         await report.insertOne({
-            adminId: new ObjectId(adminId),
+            adminId: new ObjectId(id),
             dataId: new ObjectId(dataId),
             message: message,
             date: currentDate,
@@ -36,15 +36,13 @@ const alarmReport = async (req, res) => {
         });
 
         console.log('Data inserted successfully');
-        res.status(200).json({ message: 'Data inserted successfully' });
+        next();
         
     } catch (error) {
+        await mongoCon.close();
         console.error('Error inserting data:', error);
         res.status(701).json({ error: 'Failed to insert data' });
 
-    } finally {
-        // Close the connection
-        await mongoCon.close();
     }
 }
 

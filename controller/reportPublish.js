@@ -2,7 +2,7 @@ import mongoCon from '../connection/mongodb.js';
 import { ObjectId } from "mongodb";
 import nodemailer from 'nodemailer';
 
-const reportPublish = async (req, res) => {
+const reportPublish =  (req, res, next) => {
   const { reportId } = req.params;
   const { 
     to,
@@ -12,7 +12,8 @@ const reportPublish = async (req, res) => {
     dataCm,
     dataInch,
     dataDate,
-    dataTime
+    dataTime,
+    adminId
   } = req.body;
 
   const recipientName = to.split('@')[0];
@@ -48,8 +49,10 @@ const reportPublish = async (req, res) => {
       res.status(601).json({ error: 'Error Sending Email' });
     } else {
       console.log('Email sent:', info.response);
-      res.status(200).json({ message: 'Email sent successfully' });
+      next();
     }
+
+    
   });
   } catch (error) {
     console.error('Error processing email request:', error);
