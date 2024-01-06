@@ -22,12 +22,10 @@ const verifyAdmin = async (req, res, next) => {
         }
 
     } catch (error) {
+        await mongoCon.close();
         console.error('Error:', error);
         return res.status(701).json({ error: 'Error at catch verifyAdmin' });
 
-    } finally {
-        // Close the connection
-        await mongoCon.close();
     }
 };
 

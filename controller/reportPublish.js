@@ -3,7 +3,6 @@ import { ObjectId } from "mongodb";
 import nodemailer from 'nodemailer';
 
 const reportPublish =  (req, res, next) => {
-  const { reportId } = req.params;
   const { 
     to,
     subject, 

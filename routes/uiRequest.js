@@ -25,8 +25,8 @@ const reqRoute = express.Router();
 //post
 reqRoute.post("/arduinodata", insertData); //insert from arduino
 reqRoute.post("/login", adminLogin); //insert from web
-reqRoute.post("/alarmreport", verifyToken, alarmReport, logActivity)
-reqRoute.post("/sendemail/:reportId", verifyToken, reportPublish, logActivity)
+reqRoute.post("/alarmreport/:dataId", verifyToken, alarmReport, logActivity)
+reqRoute.post("/sendemail/:dataId", verifyToken, reportPublish, logActivity)
 reqRoute.post("/editprofile/:id", verifyToken, editProfile)
 reqRoute.post("/changepassword/:id", verifyToken, changePassword)
 reqRoute.post("/addnewguest", verifyToken, addNewGuest)

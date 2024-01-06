@@ -9,7 +9,8 @@ const logActivity = async (req, res) => {
     const admindata = db.collection('admin');
     const logdata = db.collection('log');
 
-    const { id } = req.body;
+    const { dataId } = req.params; // Use the id parameter from the route
+    const { id, action } = req.body;
 
     const currentTime = new Date().toLocaleTimeString();
     const currentDate = new Date().toLocaleDateString('en-GB');
@@ -21,7 +22,7 @@ const logActivity = async (req, res) => {
       const insertLogData = await logdata.insertOne({
           adminId: new ObjectId(id),
           key: user.key,
-          action: 'Delete Depth Data',
+          action: `${action} - ${dataId}`,
           date: currentDate,
           time: currentTime
       });
@@ -30,7 +31,7 @@ const logActivity = async (req, res) => {
       const insertLogData = await logdata.insertOne({
           adminId: new ObjectId(id),
           key: "admin (me)",
-          action: 'Delete Depth Data',
+          action: `${action} - ${dataId}`,
           date: currentDate,
           time: currentTime
       });
