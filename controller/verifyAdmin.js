@@ -1,5 +1,5 @@
 import mongoCon from '../connection/mongodb.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { ObjectId } from "mongodb";
 
 const verifyAdmin = async (req, res, next) => {

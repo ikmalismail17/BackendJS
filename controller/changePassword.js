@@ -1,6 +1,6 @@
 import mongoCon from "../connection/mongodb.js";
 import { ObjectId } from "mongodb";
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 const changePassword = async (req, res) => {
     const { 

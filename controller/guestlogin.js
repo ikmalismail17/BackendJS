@@ -1,5 +1,5 @@
 import  mongoCon  from '../connection/mongodb.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 // Function to insert data into MongoDB
 const addNewGuest = async (req, res) => {

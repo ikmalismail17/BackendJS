@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import mongoCon from '../connection/mongodb.js';
 import dotenv from 'dotenv';
