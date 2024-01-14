@@ -3,16 +3,7 @@ import { ObjectId } from "mongodb";
 import nodemailer from 'nodemailer';
 
 const reportPublish =  (req, res, next) => {
-  const { 
-    to,
-    subject, 
-    message,
-    name,
-    dataCm,
-    dataInch,
-    dataDate,
-    dataTime,
-    adminId
+  const { to, subject, message, name, dataCm, dataInch, dataDate, dataTime, adminId
   } = req.body;
 
   const recipientName = to.split('@')[0];
