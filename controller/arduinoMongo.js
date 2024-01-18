@@ -11,11 +11,11 @@ const insertData = async (req, res) => {
         const database = mongoCon.db('arduinofyp');
         const arduinoMongo = database.collection('arduinodata');
 
-        // Get the current time
-        const currentTime = new Date().toLocaleTimeString();
+        // Get the current time in Malaysia
+        const currentTime = new Date().toLocaleTimeString('en-MY', { timeZone: 'Asia/Kuala_Lumpur' });
 
-        // Get the current date in the format "dd/mm/YYYY"
-        const currentDate = new Date().toLocaleDateString('en-GB');
+        // Get the current date in Malaysia in the format "dd/mm/YYYY"
+        const currentDate = new Date().toLocaleDateString('en-MY', { timeZone: 'Asia/Kuala_Lumpur' });
 
         // Insert the data into the collection
         const result = await arduinoMongo.insertOne({
