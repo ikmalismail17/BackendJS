@@ -18,7 +18,8 @@ import dataGuest from "../controller/dataGuest.js";
 import deleteGuest from "../controller/deleteGuest.js";
 import logActivity from "../controller/logActivity.js";
 import logDisplay from "../controller/logDisplay.js";
-
+import displayFeedback from "../controller/displayFeedback.js";
+import addFeedback from "../controller/addFeedback.js";
 
 const reqRoute = express.Router();
 
@@ -30,9 +31,11 @@ reqRoute.post("/sendemail/:dataId", verifyToken, reportPublish, logActivity)
 reqRoute.post("/editprofile/:id", verifyToken, editProfile)
 reqRoute.post("/changepassword/:id", verifyToken, changePassword)
 reqRoute.post("/addnewguest", verifyToken, addNewGuest)
+reqRoute.post("/addfeedback", addFeedback)
 
 //get
 reqRoute.get("/datadisplay", displayMongo)
+reqRoute.get("/feedbackdisplay", displayFeedback)
 reqRoute.get("/logdisplay", logDisplay)
 reqRoute.get("/protected", verifyToken)
 reqRoute.get("/admininfo/:id", dataAdmin)
