@@ -7,7 +7,8 @@ const displayMongo = async (req, res) => {
     await mongoCon.connect();
 
     const database = mongoCon.db('arduinofyp');
-    const arduinodata = database.collection('arduinodata');
+    // const arduinodata = database.collection('arduinodata');
+    const arduinodata = database.collection('testing');
 
     // Use find to get a cursor for all documents in the collection
     const search = arduinodata.find();
