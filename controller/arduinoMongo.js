@@ -9,7 +9,7 @@ const insertData = async (req, res) => {
 
         // Select the database
         const database = mongoCon.db('arduinofyp');
-        const arduinoMongo = database.collection('arduinodata');
+        const arduinoMongo = database.collection('testing');
 
         // Get the current time in Malaysia
         const currentTime = new Date().toLocaleTimeString('en-MY', { timeZone: 'Asia/Kuala_Lumpur' });

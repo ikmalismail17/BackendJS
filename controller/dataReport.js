@@ -8,7 +8,7 @@ const dataReport = async (req, res) => {
         await mongoCon.connect();
 
         const database = mongoCon.db('arduinofyp');
-        const arduinodata = database.collection('arduinodata');
+        const arduinodata = database.collection('testing');
 
         const { dataId } = req.params;
         const result = await arduinodata.findOne({ _id: new ObjectId(dataId) });

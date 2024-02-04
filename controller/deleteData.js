@@ -5,7 +5,7 @@ const deleteData = async (req, res, next) => {
   try {
     await mongoCon.connect();
     const db = mongoCon.db('arduinofyp');
-    const arduinodata = db.collection('arduinodata');
+    const arduinodata = db.collection('testing');
 
     const { dataId } = req.params; // Use the id parameter from the route
     const result = await arduinodata.deleteOne({ _id: new ObjectId(dataId) });
