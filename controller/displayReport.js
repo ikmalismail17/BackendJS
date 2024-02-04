@@ -20,7 +20,7 @@ const displayReport = async (req, res) => {
       },
       {
         $lookup: {
-          from: 'arduinodata',
+          from: 'testing',
           localField: 'dataId',
           foreignField: '_id',
           as: 'data'
