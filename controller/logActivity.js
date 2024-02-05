@@ -12,8 +12,11 @@ const logActivity = async (req, res) => {
     const { dataId } = req.params; // Use the id parameter from the route
     const { id, action } = req.body;
 
-    const currentTime = new Date().toLocaleTimeString();
-    const currentDate = new Date().toLocaleDateString('en-GB');
+    // Get the current time in Malaysia
+    const currentTime = new Date().toLocaleTimeString('en-MY', { timeZone: 'Asia/Kuala_Lumpur' });
+
+    // Get the current date in Malaysia in the format "dd/mm/YYYY"
+    const currentDate = new Date().toLocaleDateString('en-MY', { timeZone: 'Asia/Kuala_Lumpur' });
 
     const user = await admindata.findOne({ _id: new ObjectId(id) });
 
