@@ -20,6 +20,7 @@ import logActivity from "../controller/logActivity.js";
 import logDisplay from "../controller/logDisplay.js";
 import displayFeedback from "../controller/displayFeedback.js";
 import addFeedback from "../controller/addFeedback.js";
+import displayDataWeekly from "../controller/displayDataWeekly.js";
 
 const reqRoute = express.Router();
 
@@ -35,6 +36,7 @@ reqRoute.post("/addfeedback", addFeedback)
 
 //get
 reqRoute.get("/datadisplay", displayMongo)
+reqRoute.get("/datadisplay/:startDate/:endDate", displayDataWeekly);
 reqRoute.get("/feedbackdisplay", displayFeedback)
 reqRoute.get("/logdisplay", logDisplay)
 reqRoute.get("/protected", verifyToken)
