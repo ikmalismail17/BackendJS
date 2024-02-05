@@ -9,8 +9,8 @@ const displayDataWeekly = async (req, res) => {
     const arduinodata = database.collection('testing');
 
     // Extract parameters from the request URL
-    const startDate = req.params.startDate;
-    const endDate = req.params.endDate;
+    const startDate = req.query.startDate;
+    const endDate = req.query.endDate;
 
     console.log(startDate);
     console.log(endDate);
