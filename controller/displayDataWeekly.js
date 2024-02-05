@@ -12,6 +12,9 @@ const displayDataWeekly = async (req, res) => {
     const startDate = req.params.startDate;
     const endDate = req.params.endDate;
 
+    console.log(startDate);
+    console.log(endDate);
+
     // Use find to get a cursor for documents within the date range
     const search = arduinodata.find({
       date: {
