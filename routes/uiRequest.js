@@ -36,7 +36,7 @@ reqRoute.post("/addfeedback", addFeedback)
 
 //get
 reqRoute.get("/datadisplay", displayMongo)
-reqRoute.get("/datadisplayweekly/:startDate/:endDate", displayDataWeekly);
+reqRoute.get("/datadisplayweekly", displayDataWeekly);
 reqRoute.get("/feedbackdisplay", displayFeedback)
 reqRoute.get("/logdisplay", logDisplay)
 reqRoute.get("/protected", verifyToken)
