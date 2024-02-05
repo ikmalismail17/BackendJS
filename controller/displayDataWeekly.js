@@ -25,6 +25,7 @@ const displayDataWeekly = async (req, res) => {
 
     // Convert the cursor to an array of documents
     const data = await search.toArray();
+    console.log('Returned data:', data);
 
     // Return the filtered data
     res.json(data);
